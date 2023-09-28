@@ -89,9 +89,9 @@ export const Header = forwardRef<
           <MobileSearch />
           <ThemeToggle />
         </div>
-        <div className="hidden min-[416px]:contents">
+        {/* <div className="hidden min-[416px]:contents">
           <Button href="#">Sign in</Button>
-        </div>
+        </div> */}
       </div>
     </motion.div>
   )
