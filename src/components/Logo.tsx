@@ -13,6 +13,15 @@
 //   )
 // }
 
+import Image from 'next/image'
+
 export function Logo(props: React.ComponentPropsWithoutRef<'h1'>) {
-  return <h1 className="text-xl font-semibold opacity-90">Quran Quiz</h1>
+  return (
+    <div className="flex items-center space-x-2">
+      <Image src="/logo.png" width={35} height={35} alt="Quran Quiz Logo" />
+      <h1 className="text-lg font-semibold opacity-90 md:text-xl">
+        Quran Quiz
+      </h1>
+    </div>
+  )
 }
