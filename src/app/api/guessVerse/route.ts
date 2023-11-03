@@ -5,6 +5,8 @@ import { guessVerse } from 'quran-quiz'
 import { NextResponse } from 'next/server'
 import { match } from 'ts-pattern'
 
+export const dynamic = 'force-dynamic'
+
 export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams
