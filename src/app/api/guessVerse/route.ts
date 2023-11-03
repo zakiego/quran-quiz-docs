@@ -14,12 +14,17 @@ export async function GET(request: NextRequest) {
     const byQuery = searchParams.get('by') ?? 'surah'
     const amountQuery = searchParams.get('amount') ?? 1
     const selectQuery = searchParams.getAll('select')
-    const parsedSelectQuery =
-      selectQuery.length >= 4
-        ? selectQuery
-        : selectQuery.length > 0
-        ? selectQuery[0].split(',')
-        : [1, 2, 3, 4]
+
+    const parsedSelectQuery = match(selectQuery.length)
+      .when(
+        (len) => len > 0 && len < 4,
+        () => selectQuery[0].split(','),
+      )
+      .when(
+        (len) => len >= 4,
+        () => selectQuery,
+      )
+      .otherwise(() => [1, 2, 3, 5])
 
     const query = GuessVerseSchema.parse({
       by: byQuery,
