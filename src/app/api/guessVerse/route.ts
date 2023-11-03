@@ -2,6 +2,7 @@ import { type NextRequest } from 'next/server'
 import { GuessVerseSchema } from '@/schema/guess.schema'
 import { uniq } from 'lodash'
 import { guessVerse } from 'quran-quiz'
+import { NextResponse } from 'next/server'
 import { match } from 'ts-pattern'
 
 export async function GET(request: NextRequest) {
@@ -40,12 +41,12 @@ export async function GET(request: NextRequest) {
       )
       .exhaustive()
 
-    return Response.json({
+    return NextResponse.json({
       message: 'success',
       ...data,
     })
   } catch (error) {
-    return Response.json({
+    return NextResponse.json({
       message: 'error',
       errors: error,
     })

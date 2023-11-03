@@ -2,6 +2,7 @@ import { type NextRequest } from 'next/server'
 import { GuessSurahSchema } from '@/schema/guess.schema'
 import { uniq } from 'lodash'
 import { guessSurah } from 'quran-quiz'
+import { NextResponse } from 'next/server'
 
 export async function GET(request: NextRequest) {
   try {
@@ -23,12 +24,12 @@ export async function GET(request: NextRequest) {
       select: query.select,
     })
 
-    return Response.json({
+    return NextResponse.json({
       message: 'success',
       ...data,
     })
   } catch (error) {
-    return Response.json({
+    return NextResponse.json({
       message: 'error',
       errors: error,
     })
