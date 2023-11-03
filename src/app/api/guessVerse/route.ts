@@ -8,14 +8,17 @@ export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams
 
-    const byQuery = searchParams.get('by')
-    const amountQuery = searchParams.get('amount')
-    const selectQuery = searchParams.getAll('select')
+    const byQuery = searchParams.get('by') ?? 'surah'
+    const amountQuery = searchParams.get('amount') ?? 1
+    const selectQuery =
+      searchParams.getAll('select').length >= 4
+        ? searchParams.getAll('select')
+        : [1, 2, 3, 4]
 
     const query = GuessVerseSchema.parse({
       by: byQuery,
       amount: amountQuery,
-      select: uniq(selectQuery),
+      select: uniq(selectQuery as string[]),
     })
 
     const data = await match(query)

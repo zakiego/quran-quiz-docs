@@ -7,12 +7,15 @@ export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams
 
-    const amountQuery = searchParams.get('amount')
-    const selectQuery = searchParams.getAll('select')
+    const amountQuery = searchParams.get('amount') ?? 1
+    const selectQuery =
+      searchParams.getAll('select').length >= 4
+        ? searchParams.getAll('select')
+        : [1, 2, 3, 4]
 
     const query = GuessSurahSchema.parse({
       amount: amountQuery,
-      select: uniq(selectQuery),
+      select: uniq(selectQuery as string[]),
     })
 
     const data = await guessSurah.bySurah({
