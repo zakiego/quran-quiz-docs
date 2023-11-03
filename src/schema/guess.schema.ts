@@ -24,7 +24,7 @@ export const GuessVerseSchema = z
           invalid_type_error: 'Must be number',
         }),
       )
-      .min(4, 'Select at least four surah or juz')
+      .min(1, 'Select at least one surah or juz')
       .default([1, 2, 3, 4]),
     amount: z.coerce.number().min(1).default(1),
   })
