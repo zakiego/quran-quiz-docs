@@ -234,22 +234,24 @@ export const navigation: Array<NavGroup> = [
     title: 'Guides',
     links: [
       { title: 'Introduction', href: '/' },
-      { title: 'Quickstart', href: '/quickstart' },
-      { title: 'SDKs', href: '/sdks' },
-      { title: 'Authentication', href: '/authentication' },
-      { title: 'Pagination', href: '/pagination' },
-      { title: 'Errors', href: '/errors' },
-      { title: 'Webhooks', href: '/webhooks' },
+      // { title: 'Quickstart', href: '/quickstart' },
+      // { title: 'SDKs', href: '/sdks' },
+      // { title: 'Authentication', href: '/authentication' },
+      // { title: 'Pagination', href: '/pagination' },
+      // { title: 'Errors', href: '/errors' },
+      // { title: 'Webhooks', href: '/webhooks' },
     ],
   },
   {
     title: 'Resources',
     links: [
-      { title: 'Contacts', href: '/contacts' },
-      { title: 'Conversations', href: '/conversations' },
-      { title: 'Messages', href: '/messages' },
-      { title: 'Groups', href: '/groups' },
-      { title: 'Attachments', href: '/attachments' },
+      { title: 'Guess Verse', href: '/guess-verse' },
+      { title: 'Guess Surah', href: '/guess-surah' },
+      // { title: 'Contacts', href: '/contacts' },
+      // { title: 'Conversations', href: '/conversations' },
+      // { title: 'Messages', href: '/messages' },
+      // { title: 'Groups', href: '/groups' },
+      // { title: 'Attachments', href: '/attachments' },
     ],
   },
 ]
@@ -258,9 +260,9 @@ export function Navigation(props: React.ComponentPropsWithoutRef<'nav'>) {
   return (
     <nav {...props}>
       <ul role="list">
-        <TopLevelNavItem href="/">API</TopLevelNavItem>
-        <TopLevelNavItem href="#">Documentation</TopLevelNavItem>
-        <TopLevelNavItem href="#">Support</TopLevelNavItem>
+        {/* <TopLevelNavItem href="/">API</TopLevelNavItem> */}
+        <TopLevelNavItem href="/">Documentation</TopLevelNavItem>
+        {/* <TopLevelNavItem href="#">Support</TopLevelNavItem> */}
         {navigation.map((group, groupIndex) => (
           <NavigationGroup
             key={group.title}
