@@ -17,14 +17,14 @@ export async function GET(request: NextRequest) {
 
     const parsedSelectQuery = match(selectQuery.length)
       .when(
-        (len) => len > 0 && len < 4,
+        (len) => len === 1,
         () => selectQuery[0].split(','),
       )
       .when(
         (len) => len >= 4,
         () => selectQuery,
       )
-      .otherwise(() => [1, 2, 3, 5])
+      .otherwise(() => [1])
 
     const query = GuessVerseSchema.parse({
       by: byQuery,
