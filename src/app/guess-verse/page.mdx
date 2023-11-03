@@ -1,0 +1,71 @@
+export const metadata = {
+  title: 'Guess Verse',
+}
+
+export const sections = [
+  { title: 'By Surah', id: 'bySurah' },
+  { title: 'By Juz', id: 'byJuz' },
+]
+
+# Guess Verse
+
+This feature is designed to create continuous verse questions. It's as if you're asking, _what is the continuation of this verse_?
+
+Available modes in this feature:
+
+- [Guess Verse - By Surah](#guess-verse-by-surah)
+- [Guess Verse - By Juz](#guess-verse-by-juz)
+
+## Guess Verse - By Surah
+
+### Properties
+
+<Properties>
+  <Property name="amount" type="number">
+    Amount of questions to generate.
+  </Property>
+  <Property name="select" type="array of number">
+    List of surahs to generate questions from. From 1 to 114.
+  </Property>
+</Properties>
+
+### Example
+
+<Col sticky>
+
+    ```ts
+    import { guessVerse } from 'quran-quiz'
+
+    const data = await guessVerse.bySurah({
+      amount: 3,
+      select: [111, 112, 113, 114],
+    })
+    ```
+
+</Col>
+
+## Guess Verse - By Juz
+
+<Properties>
+  <Property name="amount" type="number">
+    Amount of questions to generate.
+  </Property>
+  <Property name="select" type="array of number">
+    List of surahs to generate questions from. From 1 to 30.
+  </Property>
+</Properties>
+
+### Example
+
+<Col sticky>
+
+    ```ts
+    import { guessVerse } from 'quran-quiz'
+
+    const data = await guessVerse.byJuz({
+      amount: 3,
+      select: [27, 28, 29, 30],
+    });
+    ```
+
+</Col>

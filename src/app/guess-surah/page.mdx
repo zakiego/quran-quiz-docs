@@ -1,0 +1,41 @@
+export const metadata = {
+  title: 'Guess Surah',
+}
+
+export const sections = [{ title: 'By Surah', id: 'bySurah' }]
+
+# Guess Surah
+
+This feature is designed to make questions about guessing surahs from existing verses. As if you were asking, _what surah does this verse belong to_?
+
+Available modes in this feature:
+
+- [Guess Sruah - By Surah](#guess-surah-by-surah)
+
+## Guess Surah - By Surah
+
+### Properties
+
+<Properties>
+  <Property name="amount" type="number">
+    Amount of questions to generate.
+  </Property>
+  <Property name="select" type="array of number">
+    List of surahs to generate questions from. From 1 to 114.
+  </Property>
+</Properties>
+
+### Example
+
+<Col sticky>
+
+    ```ts
+    import { guessSurah } from 'quran-quiz'
+
+    const data = await guessSurah.bySurah({
+      amount: 3,
+      select: [111, 112, 113, 114],
+    })
+    ```
+
+</Col>
