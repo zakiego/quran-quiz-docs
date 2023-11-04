@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
 
     const parsedSelectQuery = match(selectQuery.length)
       .when(
-        (len) => len > 0 && len < 4,
+        (len) => len === 1,
         () => selectQuery[0].split(','),
       )
       .when(

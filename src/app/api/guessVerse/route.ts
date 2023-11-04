@@ -15,16 +15,19 @@ export async function GET(request: NextRequest) {
     const amountQuery = searchParams.get('amount') ?? 1
     const selectQuery = searchParams.getAll('select')
 
+    const isSeparatedByComma = selectQuery.every((select) =>
+      select.includes(','),
+    )
     const parsedSelectQuery = match(selectQuery.length)
       .when(
-        (len) => len > 0 && len < 4,
+        (len) => len >= 1 && isSeparatedByComma,
         () => selectQuery[0].split(','),
       )
       .when(
-        (len) => len >= 4,
+        (len) => len >= 1 && !isSeparatedByComma,
         () => selectQuery,
       )
-      .otherwise(() => [1, 2, 3, 5])
+      .otherwise(() => [1])
 
     const query = GuessVerseSchema.parse({
       by: byQuery,
