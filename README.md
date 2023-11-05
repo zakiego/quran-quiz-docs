@@ -14,7 +14,7 @@ If you need help or want to contribute to this documentation, feel free to creat
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="http://zakiego.com"><img src="https://avatars.githubusercontent.com/u/78015359?v=4?s=100" width="100px;" alt="M. Zakiyuddin Munziri"/><br /><sub><b>M. Zakiyuddin Munziri</b></sub></a><br /><a href="#doc-zakiego" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://zakiego.com"><img src="https://avatars.githubusercontent.com/u/78015359?v=4?s=100" width="100px;" alt="M. Zakiyuddin Munziri"/><br /><sub><b>M. Zakiyuddin Munziri</b></sub></a><br /><a href="#doc-zakiego" title="Documentation">📖</a> <a href="#code-zakiego" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
