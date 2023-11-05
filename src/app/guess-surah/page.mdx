@@ -10,7 +10,7 @@ This feature is designed to make questions about guessing surahs from existing v
 
 Available modes in this feature:
 
-- [Guess Sruah - By Surah](#guess-surah-by-surah)
+- [Guess Surah - By Surah](#guess-surah-by-surah)
 
 ## Guess Surah - By Surah
 
@@ -21,21 +21,66 @@ Available modes in this feature:
     Amount of questions to generate.
   </Property>
   <Property name="select" type="array of number">
-    List of surahs to generate questions from. From 1 to 114.
+    List of surahs to generate questions from. From 1 to 114. Minimum 4 surahs.
   </Property>
 </Properties>
 
 ### Example
 
 <Col sticky>
+    <CodeGroup title="Request">
 
-    ```ts
+    ```ts {{ title: 'Library' }}
     import { guessSurah } from 'quran-quiz'
 
     const data = await guessSurah.bySurah({
       amount: 3,
       select: [111, 112, 113, 114],
     })
+    ```
+
+    ```txt {{ tag: "GET", label: '/api/guessSurah', title: "API" }}
+    https://quran.zakiego.com/api/guessSurah?select=111,112,113,114&amount=3
+    ```
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "data": [
+        {
+          "question": " قُلْ هُوَ ٱللَّهُ أَحَدٌ",
+          "options": [
+            {
+              "text": "Al-Masad",
+              "value": 0
+            },
+            {
+              "text": "Al-Falaq",
+              "value": 0
+            },
+            {
+              "text": "An-Nas",
+              "value": 0
+            },
+            {
+              "text": "Al-Ikhlas",
+              "value": 1
+            }
+          ]
+        },
+        // ...
+      ],
+      "meta": {
+        "type": "guessSurahBySurah",
+        "select": [
+          111,
+          112,
+          113,
+          114
+        ],
+        "amount": 3
+      }
+    }
     ```
 
 </Col>
