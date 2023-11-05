@@ -32,14 +32,59 @@ Available modes in this feature:
 ### Example
 
 <Col sticky>
+    
+    <CodeGroup title="Request">
 
-    ```ts
+    ```ts {{ title: 'Library' }}
     import { guessVerse } from 'quran-quiz'
 
     const data = await guessVerse.bySurah({
       amount: 3,
-      select: [111, 112, 113, 114],
+      select: [113, 114],
     })
+    ```
+
+    ```txt {{ tag: "GET", label: '/api/guessVerse', title: "API" }}
+    https://quran.zakiego.com/api/guessVerse?by=surah&select=113,114&amount=3
+    ```
+
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "data": [
+        {
+          "question": " قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ",
+          "options": [
+            {
+              "text": "وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ",
+              "value": 0
+            },
+            {
+              "text": "ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ ٱلنَّاسِ",
+              "value": 0
+            },
+            {
+              "text": "إِلَـٰهِ ٱلنَّاسِ",
+              "value": 0
+            },
+            {
+              "text": "مِن شَرِّ مَا خَلَقَ",
+              "value": 1
+            }
+          ]
+        },
+        // ...
+      ],
+      "meta": {
+        "type": "guessVerseBySurah",
+        "select": [
+          113,
+          114
+        ],
+        "amount": 3
+      }
+    }
     ```
 
 </Col>
@@ -51,7 +96,7 @@ Available modes in this feature:
     Amount of questions to generate.
   </Property>
   <Property name="select" type="array of number">
-    List of surahs to generate questions from. From 1 to 30.
+    List of juz to generate questions from. From 1 to 30.
   </Property>
 </Properties>
 
@@ -59,13 +104,59 @@ Available modes in this feature:
 
 <Col sticky>
 
-    ```ts
+    <CodeGroup title="Request">
+
+    ```ts {{ title: 'Library' }}
     import { guessVerse } from 'quran-quiz'
 
     const data = await guessVerse.byJuz({
       amount: 3,
-      select: [27, 28, 29, 30],
+      select: [30],
     });
+    ```
+
+    ```txt {{ tag: "GET", label: '/api/guessVerse', title: "API" }}
+    https://quran.zakiego.com/api/guessVerse?by=juz&select=30&amount=3
+    ```
+
+
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "message": "success",
+      "data": [
+        {
+          "question": "جَزَآءً وِفَاقًا",
+          "options": [
+            {
+              "text": "كَلَّا ۖ بَلْ ۜ رَانَ عَلَىٰ قُلُوبِهِم مَّا كَانُوا۟ يَكْسِبُونَ",
+              "value": 0
+            },
+            {
+              "text": "سَيَصْلَىٰ نَارًا ذَاتَ لَهَبٍ",
+              "value": 0
+            },
+            {
+              "text": "إِنَّهُمْ كَانُوا۟ لَا يَرْجُونَ حِسَابًا",
+              "value": 1
+            },
+            {
+              "text": "فَٱلسَّـٰبِقَـٰتِ سَبْقًا",
+              "value": 0
+            }
+          ]
+        },
+        // ...
+      ],
+      "meta": {
+        "type": "guessVerseByJuz",
+        "select": [
+          30
+        ],
+        "amount": 3
+      }
+    }
     ```
 
 </Col>
