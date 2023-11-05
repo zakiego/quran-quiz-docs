@@ -16,7 +16,7 @@ export default function NotFound() {
         <p className="mt-2 text-base text-zinc-600 dark:text-zinc-400">
           Sorry, we couldn’t find the page you’re looking for.
         </p>
-        <Link href="/">
+        <Link href="/" prefetch={false}>
           <Button arrow="right" className="mt-8">
             Back to docs
           </Button>
