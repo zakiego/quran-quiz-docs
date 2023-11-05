@@ -1,4 +1,4 @@
-# Quran Quiz Docs
+# Quran-Quiz Docs
 
 This repository contains the documentation for the [quran-quiz](https://github.com/zakiego/quran-quiz) library.
 
